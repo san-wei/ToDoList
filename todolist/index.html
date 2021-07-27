@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh.tw">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>ToDoList</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/1adb36782c.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <div class="todo-box">
+                <div class="todo_head">
+                    <h1 >To Do List</h1>                    
+                </div>
+                <hr>
+                <div id="todo_mid" class="todo_mid">
+                    <input type="text" id="input_text" class="todo_input"  placeholder="add your new todo">
+                    <button id="btn" class="todo_btn" onclick="btn()"><i class="fas fa-plus"></i></button>                    
+                </div>
+                <ul id="todo_ul"></ul>
+                <div id="todo_fot">
+                    <p class="todo_fot_text">You have pending tasks</p>
+                    <button id="delbtn" onclick="delAllbtn()" class="delbtn">remove</button>                    
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+    <script>        /*新增代辦事項*/
+        function btn(){   
+            var val  = document.getElementById('input_text').value;
+            if(val === ""){
+                return;
+            }
+            var todoUl = document.createElement('li');
+            todoUl.setAttribute('class','mystyle');
+            todoUl.setAttribute('id','todo_li');
+            todoUl.innerHTML=`<span class="todo_span">${val}</span>
+                <button id="check_btn" onclick="checkbtn()"><i class="fas fa-edit"></i></button>
+                <button id="del_btn" onclick="delbtn()"><i class="fas fa-trash-alt"></i></button>`                
+            document.getElementById('todo_ul').append(todoUl); 
+            document.getElementById('input_text').value = "";                   
+        };
+        /*清除全部代辦事項*/
+        function delAllbtn(){
+            var par = document.getElementById('todo_ul');
+            var pad = par.parentNode;
+            pad.removeChild(par);
+        }
+        /*清除單個代辦事項*/
+        function delbtn(){
+            var paa = document.getElementById('todo_li');
+            var pas = paa.parentNode;
+            pas.removeChild(paa);
+        }
+        /*修改代辦事項*/
+        function checkbtn(){
+            
+        }
+    </script>
+</html>

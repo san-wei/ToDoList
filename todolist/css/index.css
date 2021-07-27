@@ -1,0 +1,76 @@
+body{
+    background: #B2FEFA;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #0ED2F7, #B2FEFA);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #0ED2F7, #B2FEFA); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+ul{
+    padding: 0;
+}
+li{
+    list-style: none;
+    padding: 2px;
+    display: inline-block;
+}
+span{
+    display: inline-block;    
+    width: 250px;    
+    background-color: #f2f2f2;
+}
+button{
+    border: 1px solid rgb(77, 76, 76);
+}
+/*框架*/
+.wrapper{
+    max-width: 400px;
+    margin: 120px auto;
+}
+.todo-box{
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    z-index: 0;
+}
+/*header*/
+.todo_head{
+    text-align: center;
+}
+/*middle*/
+.todo_mid{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+/*footer*/
+.todo_fot_text{
+    font-size: 1.2em;
+    font-weight: 400;
+    display: inline-block;
+    padding-right: 20px;
+}
+/*change*/
+.todo_change{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%,-50%) ;
+    z-index: 1;
+}
+/*input*/
+.todo_input{
+    outline-color: #0ED2F7 ;
+    font-size: 18px;
+    width: 250px;
+    height: 25px;
+}
+/*btn*/
+.todo_btn{
+    height: 30px;
+    background-color: rgb(193, 11, 238);
+}
+/*compoment*/
+.mystyle{
+    margin-top: 5px;
+    font-size: 1.2em;
+}
+.fa-plus{
+    color: #fff;
+}
