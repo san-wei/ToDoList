@@ -27,11 +27,16 @@
                     <p class="todo_fot_text">You have pending tasks</p>
                     <button id="delbtn" onclick="delAllbtn()" class="delbtn">remove</button>                    
                 </div>
+                <div id="todo_edit" style="display: none;">
+                    <input type="text" id="input_edit">
+                    <button id="editbtn" onclick="edit()">OK</button>
+                </div>
             </div>
         </div>
     </div>
 </body>
-    <script>        /*新增代辦事項*/
+    <script>        
+        /*新增代辦事項*/
         function btn(){   
             var val  = document.getElementById('input_text').value;
             if(val === ""){
@@ -60,7 +65,10 @@
         }
         /*修改代辦事項*/
         function checkbtn(){
-            
+            document.getElementById("todo_edit").style.display = "block";
+            var va = document.getElementById("input_text").value;
+
+            document.getElementById("input_edit").value ==  va;
         }
     </script>
 </html>
