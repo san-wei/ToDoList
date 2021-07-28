@@ -45,7 +45,7 @@
             var todoUl = document.createElement('li');
             todoUl.setAttribute('class','mystyle');
             todoUl.setAttribute('id','todo_li');
-            todoUl.innerHTML=`<span class="todo_span">${val}</span>
+            todoUl.innerHTML=`<span id="todo_span" class="todo_span">${val}</span>
                 <button id="check_btn" onclick="checkbtn()"><i class="fas fa-edit"></i></button>
                 <button id="del_btn" onclick="delbtn()"><i class="fas fa-trash-alt"></i></button>`                
             document.getElementById('todo_ul').append(todoUl); 
@@ -66,9 +66,11 @@
         /*修改代辦事項*/
         function checkbtn(){
             document.getElementById("todo_edit").style.display = "block";
-            var va = document.getElementById("input_text").value;
-
-            document.getElementById("input_edit").value ==  va;
+        }
+        function edit(){
+            var vad = document.getElementById("input_edit").value;
+            document.getElementById("input_edit").value= "";
+            document.getElementById("todo_span").innerHTML = vad ;
         }
     </script>
 </html>
