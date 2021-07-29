@@ -28,7 +28,7 @@
                     <button id="delbtn" onclick="delAllbtn()" class="delbtn">remove</button>                    
                 </div>
                 <div id="todo_edit" style="display: none;">
-                    <input type="text" id="input_edit">
+                    <input type="text" id="input_edit" >
                     <button id="editbtn" onclick="edit()">OK</button>
                 </div>
             </div>
@@ -48,14 +48,12 @@
             todoUl.innerHTML=`<span id="todo_span" class="todo_span">${val}</span>
                 <button id="check_btn" onclick="checkbtn()"><i class="fas fa-edit"></i></button>
                 <button id="del_btn" onclick="delbtn()"><i class="fas fa-trash-alt"></i></button>`                
-            document.getElementById('todo_ul').append(todoUl); 
+            document.getElementById('todo_ul').appendChild(todoUl); 
             document.getElementById('input_text').value = "";                   
         };
         /*清除全部代辦事項*/
         function delAllbtn(){
-            var par = document.getElementById('todo_ul');
-            var pad = par.parentNode;
-            pad.removeChild(par);
+            document.getElementById("todo_ul").innerHTML="";
         }
         /*清除單個代辦事項*/
         function delbtn(){
@@ -70,7 +68,8 @@
         function edit(){
             var vad = document.getElementById("input_edit").value;
             document.getElementById("input_edit").value= "";
-            document.getElementById("todo_span").innerHTML = vad ;
+            document.getElementById("todo_span").innerText = vad ;
+            document.getElementById("todo_edit").style.display = "none";
         }
     </script>
 </html>
