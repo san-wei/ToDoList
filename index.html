@@ -72,13 +72,15 @@
                 var todo_input = document.createElement('input');
                 todo_input.setAttribute("class","todo_ipt")
                 todo_input.value = val;
-                
-                var edit =  document.createElement('button');
+
+                e.target.innerText="OK";
+
                 se.insertBefore(todo_input,se.firstChild)
                 e.target.setAttribute('class','edit')
                 return;
             }
             if( e.target.getAttribute('class') === 'edit'){
+                e.target.innerText="✎"
                 var value = e.target.parentNode.children[0].value;
                 var span = document.createElement('span')
                 span.setAttribute('class','todo_span')
@@ -93,9 +95,10 @@
             /*更換清單*/
             if(e.target.getAttribute('class') === 'checkbtn' ){
                 var li = e.target.parentNode;
+                var span =  e.target.parentNode.childNodes[2] 
                 document.getElementById("todo_ul_fin").appendChild(li);
-                li.removeChild(e.target.parentNode.children[1])
-                li.removeChild(e.target)
+                span.style.display = "none"
+                
             }
         });
         /*已完成清單*/
@@ -103,6 +106,12 @@
         ull.addEventListener('click',function(e){
             if(e.target.getAttribute('class') === 'delbtn' ){
                 ull.removeChild(e.target.parentNode);
+            }
+            if(e.target.getAttribute('class') === 'checkbtn'){
+                var lie = e.target.parentNode;
+                var spane =  e.target.parentNode.childNodes[2] 
+                document.getElementById("todo_ul").appendChild(lie);
+                spane.style.display = "inline-block"
             }
         });
     </script>
