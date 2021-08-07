@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="zh.tw">
 <head>
@@ -6,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <title>ToDoList</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://kit.fontawesome.com/1adb36782c.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link rel="stylesheet" href="./css/normalize.css">
     <link rel="stylesheet" href="./css/index.css">
 </head>
@@ -22,7 +23,10 @@
                     <input type="text" id="input_text" class="todo_input"  placeholder="add your new todo">
                     <button id="btn" class="todo_btn" onclick="btn()"><i class="fas fa-plus"></i></button>                    
                 </div>
-                <ul id="todo_ul"></ul>
+                <div class="todo_title">未完成清單</div>
+                    <ul id="todo_ul"></ul>                    
+                <div class="todo_title">已完成清單</div>
+                    <ul id="todo_ul_fin"></ul>   
                 <div id="todo_fot">
                     <p class="todo_fot_text">You have pending tasks</p>
                     <button id="delbtn" onclick="delAllbtn()" class="remove">removeAll</button>                    
@@ -41,20 +45,26 @@
             todoUl.setAttribute('id','todo_li');
             todoUl.setAttribute('class','li-style')
             todoUl.innerHTML=`<span id="todo_span" class="todo_span">${val}</span>
-                <span class="editbtn">edit</span>
-                <span class="delbtn" >x</span>`                
+                <span class="editbtn">  ✎</span>
+                <span class="delbtn">   X</span>
+                <span class="checkbtn"> ✔</span>`                
             document.getElementById('todo_ul').appendChild(todoUl); 
             document.getElementById('input_text').value = "";                   
         };
         /*清除全部代辦事項*/
         function delAllbtn(){
             document.getElementById("todo_ul").innerHTML="";
+            document.getElementById("todo_ul_fin").innerHTML="";
+
         }
-        var ul = document.querySelector('ul');
+        /*未完成清單*/
+        var ul = document.querySelector("ul");
         ul.addEventListener('click',function(e){
+            /*清除單個*/
             if(e.target.getAttribute('class') === 'delbtn' ){
                 ul.removeChild(e.target.parentNode);
             }
+            /*更改數值*/
             if(e.target.getAttribute('class') === 'editbtn'){
                 var se = e.target.parentNode;
                 var val =  se.firstChild.innerText ; 
@@ -78,6 +88,21 @@
                 e.target.parentNode.insertBefore(span,e.target.parentNode.firstChild)
 
                 e.target.setAttribute('class','editbtn')
+                return;
+            }
+            /*更換清單*/
+            if(e.target.getAttribute('class') === 'checkbtn' ){
+                var li = e.target.parentNode;
+                document.getElementById("todo_ul_fin").appendChild(li);
+                li.removeChild(e.target.parentNode.children[1])
+                li.removeChild(e.target)
+            }
+        });
+        /*已完成清單*/
+        var ull = document.getElementById("todo_ul_fin");
+        ull.addEventListener('click',function(e){
+            if(e.target.getAttribute('class') === 'delbtn' ){
+                ull.removeChild(e.target.parentNode);
             }
         });
     </script>
