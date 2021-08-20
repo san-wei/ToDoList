@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="zh.tw">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>ToDoList</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="box">
+            <div class="title">
+                <p class="todo_title">ToDoList---localStorage</p> 
+            </div>
+            <div class="todo">
+                <input type="text" name="" id="" placeholder="add new todo">
+                <button  class="btn_add"><i class="fas fa-plus"></i></button>
+            </div>
+            <ul id="ul" class="list"></ul>
+            <div class="footer">
+                <p class="footer_p">RemoveAll</p>
+            </div>
+        </div>
+    </div> 
+    <script>
+        var list = document.querySelector(".list");
+        var add  = document.querySelector(".btn_add");
+        var data = JSON.parse(localStorage.getItem("todo")) || [];
+        var del  = document.querySelector(".footer_p");
+
+        add.addEventListener("click",addlist);
+        list.addEventListener("click",removelist)
+        del.addEventListener("click",removeall)
+        updateList(data);
+
+        function addlist(e){
+            e.preventDefault();
+            let val  = document.querySelector("input");
+            let todolist =  {
+                content: val.value
+            }
+            data.push(todolist);
+            updateList(data);
+            localStorage.setItem("todo", JSON.stringify(data));
+            val.value = "";
+        }
+        function updateList(items){
+            var con = "";
+            for(var i=0; items.length>i; i++){
+                con += '<li><p class="todo_val">'+ items[i].content +'</p><button class="delbtn" data-index=' + i + '>X</button><button class="editbtn" data-index=' + i + '>✎</button></li>';
+            };
+            list.innerHTML= con;
+        };
+        function removelist(e){
+            e.preventDefault();
+            if(e.target.tagName !== 'I'){
+                if(e.target.getAttribute('class') === 'delbtn'){
+                    var index = e.target.dataset.index;
+                    data.splice(index,1);
+                    localStorage.setItem('todo',JSON.stringify(data));
+                    updateList(data);  
+                    console.log(e.target)              
+                }
+            }else{
+                return;
+            }
+            if(e.target.tagName !== 'I'){
+                if(e.target.getAttribute('class') === 'editbtn'){
+                    var index = e.target.dataset.index;
+                }
+            }
+        }
+        function removeall(){
+            document.getElementById("ul").innerHTML="";
+            localStorage.clear("todo");
+        }
+    </script>
+</body>
+</html>

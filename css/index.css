@@ -1,0 +1,67 @@
+body{
+    background: #000000;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */    
+}
+ul{
+    padding: 0;
+    margin: 0;
+}
+li{
+    list-style: none;
+    margin: 2px 0;
+}
+button{
+    border:0;
+    background-color: transparent;    
+    color: #fff;
+}
+.fas{
+    color: #fff;
+}
+/*框架*/
+.wrapper{
+    margin:  0 auto;
+    width: 250px;
+}
+/*btn*/
+.fa-plus{
+    color: rgb(248, 244, 0);
+}
+.btn_add{
+    outline: none;
+    border: 0;
+    height: 25px;
+    width: 25px;
+}
+/*title*/
+.todo_title{
+    background: linear-gradient(to right, #fc7a00,  #ffc402);
+    background: -webkit-linear-gradient(to right, #fc7a00, #ffc402, #ffaf7b);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+/*footer*/
+.footer{
+    text-align: center;
+}
+.footer_p{
+    display: inline-block;
+    padding: 5px 10px;
+    font-size: 0.5em;
+    font-family: serif;
+    font-weight: 900;
+    background-color: rgb(255, 255, 255);
+    color: rgb(255, 6, 6);
+    border-radius: 30px;
+}
+/*list*/
+.todo_val{
+    width: 180px;
+    display: inline-block;
+    margin: 0.5rem 0;
+    color: rgb(148, 255, 25);
+}
