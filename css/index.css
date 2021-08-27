@@ -4,12 +4,12 @@ body{
     background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */    
 }
 ul{
-    padding: 0;
-    margin: 0;
+    padding-top: 10px;
+    padding-left: 0px;
 }
 li{
     list-style: none;
-    margin: 2px 0;
+    margin-bottom: 10px ;
 }
 button{
     border:0;
@@ -22,17 +22,39 @@ button{
 /*框架*/
 .wrapper{
     margin:  0 auto;
-    width: 250px;
+    width: 500px;
 }
+.todo{
+    text-align: center;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+}
+.list{
+    font-size: 1em;
+    margin:  0 auto;
+    width: 400px;}
 /*btn*/
-.fa-plus{
-    color: rgb(248, 244, 0);
-}
 .btn_add{
     outline: none;
-    border: 0;
-    height: 25px;
-    width: 25px;
+    border: 1px solid #fff;
+    background-color: #fff;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.popuer{
+    color: rgb(	138,43,226);
+}
+.editbtn{
+    color: rgb(0,0,128);
+    background-color: #fff;
+    border-radius: 20px;
+}
+.delbtn{
+    color: rgb(0,0,128);
+    background-color: #fff;
+    border-radius: 20px;
+    margin-right: 10px;
+    margin-left: 10px;
 }
 /*title*/
 .todo_title{
@@ -42,7 +64,8 @@ button{
     -webkit-background-clip: text;
     color: transparent;
     font-weight: bold;
-    font-size: 1.5em;
+    font-size: 3em;
+    text-align: center;
 }
 /*footer*/
 .footer{
@@ -50,18 +73,32 @@ button{
 }
 .footer_p{
     display: inline-block;
-    padding: 5px 10px;
-    font-size: 0.5em;
+    padding: 6px 20px;
+    font-size: 1.5em;
     font-family: serif;
     font-weight: 900;
-    background-color: rgb(255, 255, 255);
-    color: rgb(255, 6, 6);
+    border: 1px solid #fff;
     border-radius: 30px;
+    background: linear-gradient(to right, #fc7a00,  #ffc402);
+    background: -webkit-linear-gradient(to right, #fc7a00, #ffc402, #ffaf7b);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    cursor: pointer;
 }
 /*list*/
 .todo_val{
-    width: 180px;
+    width: 290px;
     display: inline-block;
-    margin: 0.5rem 0;
-    color: rgb(148, 255, 25);
+    padding: 0px 0px 0px 15px;
+    margin: 0;
+    color: rgb(	127,255,0);
+    background-color: rgb(255, 255, 255,0.1);
+}
+.todo_li{
+    font-size: 1.8em;
+}
+.todo_ipt{
+    width: 300px;
+    display: inline-block;
 }
